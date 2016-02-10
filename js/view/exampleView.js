@@ -27,20 +27,30 @@ var ExampleView = function (container, model) {
 		event.data.nbGuests.html(model.getNumberOfGuests());
 	}*/
 
+	loadMainDishes();
+
 	function loadMainDishes(){
-		dishContainer = container.find("#dishContainer");
-		mainDishes = model.getAllDishes("main dish");
-
+		var dishContainer = container.find("#dishContainer");
+		var mainDishes = model.getAllDishes("main dish");
 		var dishHtml = "";
+		var dish = null;
+		console.log(mainDishes);
 
-		for(dish in mainDishes){
-			dishHtml = '<div class="dish"><div class="dish-img">';
-			dishHtml += '<img src="'+dish.image+'" alt="'+dish.name+'">';
-			dishHtml += '<p>'+dis.name+'</p></div>':
+		for (var i = 0; i <= mainDishes.length-1; i++) {
+			dish = mainDishes[i];
+
+			dishHtml = '<div class="dish" data-id="'+dish.id+'"><div class="dish-img">';
+			dishHtml += '<img src="./images/'+dish.image+'" alt="'+dish.name+'">';
+			dishHtml += '<p>'+dish.name+'</p></div>';
 			dishHtml += '<div class="description"><p>'+dish.description+'</p></div></div>';
 
-			dishContainer.append(dishHtml);
+			console.log(dishHtml);
+			$("#dishContainer").append(dishHtml);
 		}
+	}
+
+	function loadDish(id){
+		var currentDish = model.getDish(id);
 
 	}
 	
