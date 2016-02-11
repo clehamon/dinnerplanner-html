@@ -83,8 +83,20 @@ var DinnerModel = function() {
 		var totalPrice = 0;
 
 		// for each ingredient add the individual price multiply by the quantity to the total price
-		for (ingredient in allIngredients) {
-			totalPrice += ingredient.quantity * ingredient.price;
+		for (key in allIngredients) {
+			totalPrice += allIngredients[key].quantity * allIngredients[key].price;
+		};
+
+		return totalPrice;
+	}
+
+	this.getDishPrice = function(id){
+		var allIngredients = this.getDish(id).ingredients;
+		var totalPrice = 0;
+
+		// for each ingredient add the individual price multiply by the quantity to the total price
+		for (key in allIngredients) {
+			totalPrice += allIngredients[key].quantity * allIngredients[key].price;
 		};
 
 		return totalPrice;

@@ -23,8 +23,30 @@ body{
 }
 
 .main{
-	padding-left: 0;
+	padding: 0;
 	background-color: #FFF;
+}
+
+/* View 4 : Preparation */
+
+.detailsText{
+	margin-top: 10px;
+}
+
+.ingredients{
+	font-size: 1.3em;
+	background-color: #F9F098;
+	border: solid 2px black;
+}
+
+.ingredients-title{
+	font-size: 1.5em;
+	text-transform: uppercase;
+	border-bottom: solid 1px black;
+}
+
+.ingredient-price p{
+	float: right;
 }
 
 /*View 6 : Final menu*/
@@ -70,4 +92,8 @@ body{
 
 .nomarg{
 	margin: 0;
+}
+
+.left{
+	float: left;
 }
