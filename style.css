@@ -1,11 +1,16 @@
 
+body{
+	height: 100%;
+	background-color:#eeeeee;
+}
+
 #sidebar {
     line-height:20px;
     background-color:#eeeeee;
     height:100%;
-    width:25%;
     float:left;
     padding:20px;
+    display: table-cell;
 
 
 }
@@ -19,6 +24,7 @@
 
 .main{
 	padding-left: 0;
+	background-color: #FFF;
 }
 
 /*View 6 : Final menu*/

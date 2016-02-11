@@ -27,8 +27,6 @@ var ExampleView = function (container, model) {
 		event.data.nbGuests.html(model.getNumberOfGuests());
 	}*/
 
-	//loadMainDishes();
-
 	function loadMainDishes(){
 		var mainDishes = model.getAllDishes("main dish");
 		var dishHtml = "";
@@ -51,12 +49,13 @@ var ExampleView = function (container, model) {
 
 	}
 
-	loadFinalMenu();
 
 	function loadFinalMenu(){
 		var fullMenu = model.getFullMenu();
 		var dishHtml = "";
 		var dish = null;
+
+		$("#finalGuestNb").html(model.getNumberOfGuests());
 
 		for (var i = 0; i <= fullMenu.length-1; i++) {
 			dish = fullMenu[i];
