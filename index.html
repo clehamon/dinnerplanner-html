@@ -17,42 +17,69 @@
 	<div class="container">
 		<h1>Dinner planner</h1>
 		<div id="exampleView">
+			
+		</div>
+	</div>!-->
+
+	<nav class="navbar navbar-default nomarg">
+	    <div class="container-fluid">
+	      <div class="navbar-header">
+	        <a class="navbar-brand" href="#"><font size="15">HOMELETTE</font></a>
+	        <p class="navbar-text">From the chefs of KTH</p>
+	      </div>
+
+	    </div>
+  	</nav>
+
+  	<div class="row">
+		<!--   sections  -->
+
+		<div id="sidebar" class="col-md-3 nopad">
 			<div>
 				Number of guests : <span id="numberOfGuests"></span>
 			</div>
 			<div>
-          <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+          		<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
 				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
 			</div>
 		</div>
-	</div>!-->
 
-	<div id="dishContainer"></div>
+		<div class="main col-md-9">
+		<!--   Search Dishes  -->
 
-	<div id="finalMenu">
-		<div class="row menuHeader">
-			<div class="dinnerTitle">My Dinner : <span id="finalGuestNb">4</span> people</div>
-			<button class="goBackButton">Go back and edit dinner</button>
-		</div>
+			<div id="search-dish">
 
-		<div class="container-fluid">
-			<div class="row" id="finalMenuDishes">
-				<!--<div class="dishCol col-md-10 col-md-offset-1">
-					<div class="col-md-2">
-						<img src="./images/toast.jpg" alt="" class="img-reponsive block dishPic">
+			</div>
+			<!--   Container for Dishes information -->
+
+			<div id="dishContainer"></div>
+
+			<div id="finalMenu">
+				<div class="row menuHeader">
+					<div class="dinnerTitle">My Dinner : <span id="finalGuestNb">4</span> people</div>
+					<button class="goBackButton">Go back and edit dinner</button>
+				</div>
+
+				<div class="container-fluid">
+					<div class="row" id="finalMenuDishes">
+						<!--<div class="dishCol col-md-10 col-md-offset-1">
+							<div class="col-md-2">
+								<img src="./images/toast.jpg" alt="" class="img-reponsive block dishPic">
+							</div>
+							<div class="dishDescription col-md-3">
+								<h3 class="dishTitle">Toasts</h3>
+								<p></p>
+							</div>
+							<div class="dishPreparation col-md-6 col-md-offset-1">
+								<h4 class="dishTitle">Preparation</h4>
+								<p></p>
+							</div>
+						</div>!-->
 					</div>
-					<div class="dishDescription col-md-3">
-						<h3 class="dishTitle">Toasts</h3>
-						<p></p>
-					</div>
-					<div class="dishPreparation col-md-6 col-md-offset-1">
-						<h4 class="dishTitle">Preparation</h4>
-						<p></p>
-					</div>
-				</div>!-->
+				</div>
+
 			</div>
 		</div>
-
 	</div>
 
     <!-- jQuery -->

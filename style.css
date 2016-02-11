@@ -1,3 +1,28 @@
+
+#sidebar {
+    line-height:20px;
+    background-color:#eeeeee;
+    height:100%;
+    width:25%;
+    float:left;
+    padding:20px;
+
+
+}
+
+#search-dish {
+    width:350px;
+    float:left;
+    padding:10px; 
+
+}
+
+.main{
+	padding-left: 0;
+}
+
+/*View 6 : Final menu*/
+
 .menuHeader{
 	width: 100%;
 	background-color: #F9F098;
@@ -31,4 +56,12 @@
 
 .dishTitle{
 	margin-top: 0;
+}
+
+.nopad{
+	padding: 0;
+}
+
+.nomarg{
+	margin: 0;
 }

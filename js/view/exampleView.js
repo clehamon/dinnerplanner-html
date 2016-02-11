@@ -61,8 +61,8 @@ var ExampleView = function (container, model) {
 		for (var i = 0; i <= fullMenu.length-1; i++) {
 			dish = fullMenu[i];
 
-			dishHtml = '<div class="dishCol col-md-10 col-md-offset-1">';
-			dishHtml += '<div class="col-md-2"><img src="./images/'+dish.image+'" alt="'+dish.name+'" class="img-reponsive block dishPic"></div>';
+			dishHtml = '<div class="dishCol col-md-12">';
+			dishHtml += '<div class="col-md-2 nopad"><img src="./images/'+dish.image+'" alt="'+dish.name+'" class="img-reponsive center-block dishPic"></div>';
 
 			dishHtml += '<div class="dishDescription col-md-3"><h3 class="dishTitle">'+dish.name+'</h3>';
 			dishHtml +=	'<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis ab voluptatibus eum nisi, eaque excepturi consequatur pariatur fugiat dolorum porro, quae velit cumque veritatis earum accusamus id dignissimos obcaecati, ea.</p></div>';
