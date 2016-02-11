@@ -1,0 +1,34 @@
+.menuHeader{
+	width: 100%;
+	background-color: #F9F098;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	margin: 0;
+}
+
+.dinnerTitle{
+	float: left;
+	margin-left:20px;
+	font-size: 22px;
+}
+
+.goBackButton{
+	float: right;
+	margin-right: 20px;
+	font-size: 14px;
+	background-color: #F5BA23;
+	border: solid 2px black;
+}
+
+.dishCol{
+	padding: 30px 0px 30px 0px;
+	text-align: justify;
+}
+
+.dishPic{
+	border: solid 2px black;
+}
+
+.dishTitle{
+	margin-top: 0;
+}

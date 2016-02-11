@@ -5,7 +5,7 @@ var DinnerModel = function() {
 	// and selected dinner options for dinner menu
 
 	var nbGuest = 0;
-	var menu 	 = [];
+	var menu 	 = [1,100,201];
 
 	this.setNumberOfGuests = function(num) {
 		// If num is an integer
@@ -46,9 +46,9 @@ var DinnerModel = function() {
 		var fullMenu = [];
 
 		//Iterate over the menu
-		for (dishId in menu){
+		for (key in menu){
 			//Get the details from the id and Add every dish to the array
-			fullMenu.push(getDish(dishId));
+			fullMenu.push(this.getDish(menu[key]));
 		}
 
 		return fullMenu;
@@ -60,8 +60,8 @@ var DinnerModel = function() {
 		var currentDish = null;
 
 		//Iterate over the menu
-		for (dishId in menu){
-			currentDish = getDish(dishId);
+		for (key in menu){
+			currentDish = getDish(menu[key]);
 
 			// For each dish in the menu iterate over the ingredients
 			// Two similar ingredients can be in the array if they are in different recipes

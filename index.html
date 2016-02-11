@@ -8,9 +8,12 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
   </head>
   <body>
+
+  	<!--
 	<div class="container">
 		<h1>Dinner planner</h1>
 		<div id="exampleView">
@@ -22,9 +25,35 @@
 				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
 			</div>
 		</div>
-	</div>
+	</div>!-->
 
 	<div id="dishContainer"></div>
+
+	<div id="finalMenu">
+		<div class="row menuHeader">
+			<div class="dinnerTitle">My Dinner : <span id="finalGuestNb">4</span> people</div>
+			<button class="goBackButton">Go back and edit dinner</button>
+		</div>
+
+		<div class="container-fluid">
+			<div class="row" id="finalMenuDishes">
+				<!--<div class="dishCol col-md-10 col-md-offset-1">
+					<div class="col-md-2">
+						<img src="./images/toast.jpg" alt="" class="img-reponsive block dishPic">
+					</div>
+					<div class="dishDescription col-md-3">
+						<h3 class="dishTitle">Toasts</h3>
+						<p></p>
+					</div>
+					<div class="dishPreparation col-md-6 col-md-offset-1">
+						<h4 class="dishTitle">Preparation</h4>
+						<p></p>
+					</div>
+				</div>!-->
+			</div>
+		</div>
+
+	</div>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
