@@ -34,17 +34,17 @@ var ExampleView = function (container, model) {
 
 		for (var i = 0; i <= mainDishes.length-1; i++) {
 			dish = mainDishes[i];
-
 			dishHtml = '<div class="dish col-xs-3" data-id="'+dish.id+'"><div class="dish-img">';
 			dishHtml += '<img class="" src="./images/'+dish.image+'" alt="'+dish.name+'">';
 			dishHtml += '<p>'+dish.name+'</p></div>';
 			dishHtml += '<div class="description"><p>'+dish.description+'</p></div></div>';
+			console.log(dishHtml);
 
 			$("#dishContainer").append(dishHtml);
 		}
 	}
 
-	loadDish(1);
+	loadMainDishes();
 
 	function loadDish(id){
 		var dish = model.getDish(id);
@@ -97,8 +97,6 @@ var ExampleView = function (container, model) {
 			$("#finalMenuDishes").append(dishHtml);
 		}
 	}
-
-	$("#dishContainer").hide();
 
 
 	

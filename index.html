@@ -33,7 +33,8 @@
 
   	<div class="row nomarg">
 		<!--   sections  -->
-
+		
+		<!-- View 2 -->
 		<div id="sidebar" class="col-xs-3 nopad">
 
 			<h3>My Dinner</h3>
@@ -54,9 +55,36 @@
 			</div> -->
 			<!--   Container for Dishes information -->
 
-			<!-- <div id="dishContainer"></div> -->
-
-			<div id="preparationDetails">
+			<div id="dishContainer">
+				<div class="row menuHeader">
+					<div class="dinnerTitle col-xs-12">Select Dish : <span id="finalGuestNb"></span> peoples</div>
+					<div class="col-xs-12">
+						<div class="col-xs-6">
+							<div class="input-group">
+						      <input type="text" class="form-control" placeholder="Search for...">
+						      <span class="input-group-btn">
+						        <button class="btn btn-default" type="button">Go!</button>
+						      </span>
+						    </div>
+						</div>
+						
+						<div class="col-xs-6">
+						    <div class="btn-group">
+							  <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							    Main Dish<span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu">
+							    <li>Starter</li>
+							    <li>Dessert</li>
+							  </ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+			<!-- View 4 -->
+			<!-- <div id="preparationDetails">
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-xs-6">
@@ -87,7 +115,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
 			<!-- <div id="finalMenu">
 				<div class="row menuHeader">
