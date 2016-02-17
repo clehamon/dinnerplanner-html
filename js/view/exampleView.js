@@ -12,10 +12,10 @@ var ExampleView = function (container, model) {
 	this.numberOfGuests.html(model.getNumberOfGuests());
 
 	// View 3
-	//loadMainDishes();
+	loadMainDishes();
 
 	// View 4
-	loadDish(100);
+	//loadDish(100);
 
 	// View 5
 	//loadFinalMenuList();
