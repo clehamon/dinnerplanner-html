@@ -41,6 +41,22 @@ text-shadow: 2px 2px 8px #000000;
 
 }
 
+#sidebarItems{
+	width: 100%;
+}
+
+.sidebarName{
+	width: 75%;
+}
+
+.sidebarCost{
+	width: 25%;
+}
+
+.sidebarItemsFinal{
+	border-top: 1px solid black;
+}
+
 #search-dish {
     width:350px;
     float:left;
@@ -191,6 +207,14 @@ text-shadow: 2px 2px 8px #000000;
 	text-align: center;
 }
 
+.txt-right{
+	text-align: right;
+}
+
 .left{
 	float: left;
+}
+
+.right{
+	float: right;
 }

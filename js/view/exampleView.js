@@ -13,6 +13,7 @@ var ExampleView = function (container, model) {
 
 	// View 3
 	loadMainDishes();
+	loadSidebar();
 
 	// View 4
 	//loadDish(100);
@@ -22,6 +23,29 @@ var ExampleView = function (container, model) {
 
 	// View 6
 	//loadFinalMenuPrint();
+
+	function loadSidebar(){
+
+		var fullMenu = model.getFullMenu();
+		var nbGuests = model.getNumberOfGuests();
+
+		var dishHtml = "";
+		var dish = null;
+
+		$("#nbGuestInput").attr("text", nbGuests);
+
+		for (var i = 0; i <= fullMenu.length-1; i++) {
+			dish = fullMenu[i];
+
+			dishHtml = '<tr><td>'+dish.name+'</td><td>'+model.getDishPrice(dish.id)*nbGuests+'</td></tr>';
+
+			$("#sidebarItems").append(dishHtml);
+		}
+
+		dishHtml = '<tr><td class="txt-right">SEK</td><td>'+model.getTotalMenuPrice()+'</td></tr>';
+
+		$("#sidebarItems").append(dishHtml);
+	}
 
 	function loadMainDishes(){
 		var mainDishes = model.getAllDishes("main dish");

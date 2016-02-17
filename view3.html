@@ -43,19 +43,29 @@
 			</div>
 
 			<div class="input-group">
-			  <input type="text" class="form-control" aria-label="...">
+			  <input type="text" class="form-control" aria-label="..." id="nbGuestInput">
 			  <div class="input-group-btn">
 			    <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
 				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
 			  </div>
 			</div>
 
-			 <div class="row" id="sidebar-items">
-			 	<div class="sidebar-item">
-				 	<div class="col-xs-10">Meatballs</div>
-				 	<div class="col-xs-2">20</div>
-			 	</div>
-			 </div>
+			<table class="table" id="sidebarItems">
+				<tr>
+					<th class="sidebarName">Dish name</th>
+					<th class="sidebarCost">Cost</th>
+				</tr>
+			</table>
+
+
+			<div class=" printRecipe">
+				<button class="goBackButton">Confirm dinner</button>
+			</div>
+							
+
+
+
+
 		</div>
 
 		<div class="main col-xs-9">
