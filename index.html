@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css">
 	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
   </head>
-  <body>
+  <body class="full-height">
 
   	<!--
 	<div class="container">
@@ -31,7 +31,7 @@
 	    </div>
   	</nav>
 
-  	<div class="row nomarg">
+  	<div class="row nomarg full-height">
 		<!--   sections  -->
 		
 		<!-- View 2 -->
@@ -47,15 +47,15 @@
 			</div>
 		</div>
 
-		<div class="main col-xs-9">
+		<div class="main col-xs-9 full-height">
 		<!--   Search Dishes  -->
 
 			<!-- <div id="search-dish">
 
 			</div> -->
-			<!--   Container for Dishes information -->
+			<!-- View 3 :  Container for Dishes information -->
 
-			<div id="dishContainer">
+			<!-- <div id="dishContainer">
 				<div class="row menuHeader">
 					<div class="dinnerTitle col-xs-12">Select Dish : <span id="finalGuestNb"></span> peoples</div>
 					<div class="col-xs-12">
@@ -82,7 +82,7 @@
 					</div>
 				</div>
 			</div>
-	
+ -->	
 			<!-- View 4 -->
 			<!-- <div id="preparationDetails">
 				<div class="container-fluid">
@@ -116,18 +116,65 @@
 					</div>
 				</div>
 			</div> -->
+	
 
-			<!-- <div id="finalMenu">
+			<!-- View 5 & 6 -->
+			<div id="finalMenu" class="full-height">
 				<div class="row menuHeader">
 					<div class="dinnerTitle">My Dinner : <span id="finalGuestNb"></span> peoples</div>
 					<button class="goBackButton">Go back and edit dinner</button>
 				</div>
 
 				<div class="container-fluid">
-					<div class="row" id="finalMenuDishes">
-						
+
+					<!-- View 5 -->
+					<div class="margtop full-height" id="finalMenuList">
+						<div class="row">
+							<div class="col-xs-6 col-xs-offset-3">
+								<div class="row">
+									<div class="dish col-xs-4">
+										<div class="dishImg">
+											<img class="img-responsive" src="./images/icecream.jpg" alt="Ice cream">
+											<p class="titleDishThumb">Ice Cream</p>
+										</div>
+										<div class="price"><p>70 SEK</p></div>
+									</div>
+
+									<div class="dish col-xs-4">
+										<div class="dishImg">
+											<img class="img-responsive" src="./images/icecream.jpg" alt="Ice cream">
+											<p class="titleDishThumb">Ice Cream</p>
+										</div>
+										<div class="price"><p>70 SEK</p></div>
+									</div>
+
+									<div class="dish col-xs-4">
+										<div class="dishImg">
+											<img class="img-responsive" src="./images/icecream.jpg" alt="Ice cream">
+											<p class="titleDishThumb">Ice Cream</p>
+										</div>
+										<div class="price"><p>70 SEK</p></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-2 left-border">
+								<div class="totalPrice">
+									<p class="nomarg">Total :</p>
+									<p class="price left"><span id="finalPrice">350</span> SEK</p>
+								</div>
+							</div>
+							<div class="row ">
+								<div class="col-xs-4 col-xs-offset-4 printRecipe">
+									<button class="goBackButton">Print Full Recipe</button>
+								</div>
+							</div>
+						</div>
 					</div>
-				</div> -->
+
+					<!-- View 6 -->
+					<!-- <div class="row" id="finalMenuDishes">
+					</div> -->
+				</div>
 
 			</div>
 		</div>

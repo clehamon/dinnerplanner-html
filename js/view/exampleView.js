@@ -34,9 +34,9 @@ var ExampleView = function (container, model) {
 
 		for (var i = 0; i <= mainDishes.length-1; i++) {
 			dish = mainDishes[i];
-			dishHtml = '<div class="dish col-xs-3" data-id="'+dish.id+'"><div class="dish-img">';
+			dishHtml = '<div class="dish col-xs-3" data-id="'+dish.id+'"><div class="dishImg">';
 			dishHtml += '<img class="" src="./images/'+dish.image+'" alt="'+dish.name+'">';
-			dishHtml += '<p>'+dish.name+'</p></div>';
+			dishHtml += '<p class="titleDishThumb">'+dish.name+'</p></div>';
 			dishHtml += '<div class="description"><p>'+dish.description+'</p></div></div>';
 			console.log(dishHtml);
 
@@ -74,9 +74,11 @@ var ExampleView = function (container, model) {
 
 	}
 
-	// loadFinalMenu();
+	function loadFinalMenuList(){
 
-	function loadFinalMenu(){
+	}
+
+	function loadFinalMenuDishes(){
 		var fullMenu = model.getFullMenu();
 		var dishHtml = "";
 		var dish = null;
