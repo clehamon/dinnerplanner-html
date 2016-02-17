@@ -91,9 +91,6 @@ body{
 	border: solid 2px black;
 }
 
-#finalMenuList{
-	height: 100%;
-}
 
 .titleDishThumb{
 	text-align: center;
@@ -127,7 +124,7 @@ body{
 	color: #820414;
 }
 
-.left-border{
+.FinalMenuListTotal{
 	position: relative;
 	height: 100%;
 	border-left: solid 1px black;

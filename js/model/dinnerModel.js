@@ -64,12 +64,12 @@ var DinnerModel = function() {
 
 		//Iterate over the menu
 		for (key in menu){
-			currentDish = getDish(menu[key]);
+			currentDish = this.getDish(menu[key]);
 
 			// For each dish in the menu iterate over the ingredients
 			// Two similar ingredients can be in the array if they are in different recipes
-			for( ingredient in currentDish.ingredients){
-				allIngredients.push(ingredient);
+			for( i in currentDish.ingredients){
+				allIngredients.push(currentDish.ingredients[i]);
 			}
 		}
 		return allIngredients;
@@ -79,15 +79,15 @@ var DinnerModel = function() {
 	this.getTotalMenuPrice = function() {
 
 		//get an array with all of the ingredients in the menu
-		var allIngredients = getAllIngredients();
-		var totalPrice = 0;
+		var allIngredients = this.getAllIngredients();
+		var individualPrice = 0;
 
 		// for each ingredient add the individual price multiply by the quantity to the total price
 		for (key in allIngredients) {
-			totalPrice += allIngredients[key].quantity * allIngredients[key].price;
+			individualPrice += allIngredients[key].price;
 		};
 
-		return totalPrice;
+		return individualPrice*this.getNumberOfGuests();
 	}
 
 	this.getDishPrice = function(id){
@@ -96,7 +96,7 @@ var DinnerModel = function() {
 
 		// for each ingredient add the individual price multiply by the quantity to the total price
 		for (key in allIngredients) {
-			totalPrice += allIngredients[key].quantity * allIngredients[key].price;
+			totalPrice += allIngredients[key].price;
 		};
 
 		return totalPrice;
@@ -106,7 +106,7 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		// Get the dish associated with the id in the argument
-		var dish = getDish(id);
+		var dish = this.getDish(id);
 		var foundDish = false;
 		var i = menu.length-1;
 

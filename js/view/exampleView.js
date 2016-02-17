@@ -44,7 +44,7 @@ var ExampleView = function (container, model) {
 		}
 	}
 
-	loadMainDishes();
+	//loadMainDishes();
 
 	function loadDish(id){
 		var dish = model.getDish(id);
@@ -76,9 +76,31 @@ var ExampleView = function (container, model) {
 
 	function loadFinalMenuList(){
 
+		var fullMenu = model.getFullMenu();
+		var nbGuests = model.getNumberOfGuests();
+
+		var dishHtml = "";
+		var dish = null;
+
+		$("#finalGuestNb").html(nbGuests);
+		$("#finalPrice").html(model.getTotalMenuPrice());
+
+		for (var i = 0; i <= fullMenu.length-1; i++) {
+			dish = fullMenu[i];
+
+			dishHtml = '<div class="dish col-xs-4">';
+			dishHtml += '<div class="dishImg"><img class="img-responsive" src="./images/'+dish.image+'" alt="'+dish.name+'">';
+			dishHtml += '<p class="titleDishThumb">'+dish.name+'</p></div>';
+			dishHtml += '<div class="price"><p>'+model.getDishPrice(dish.id)*nbGuests+' SEK</p></div></div>'
+
+			$("#finalMenuListDishes").append(dishHtml);
+		}				
+			
 	}
 
-	function loadFinalMenuDishes(){
+	loadFinalMenuList();
+
+	function loadFinalMenuPrint(){
 		var fullMenu = model.getFullMenu();
 		var dishHtml = "";
 		var dish = null;
