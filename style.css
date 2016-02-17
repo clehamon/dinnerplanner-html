@@ -30,6 +30,7 @@ body{
 .main{
 	padding: 0;
 	background-color: #FFF;
+	min-height: 100%;
 }
 
 /* View 4 : Preparation */
@@ -39,7 +40,6 @@ body{
 }
 
 .ingredients{
-	font-size: 1.3em;
 	background-color: #F9F098;
 	border: solid 2px black;
 }
@@ -85,6 +85,10 @@ body{
 
 .dishImg{
 	border : solid 2px black;
+}
+
+.dishImg img{
+	height: 140px;
 }
 
 .dishPic{

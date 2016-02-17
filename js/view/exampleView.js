@@ -11,21 +11,17 @@ var ExampleView = function (container, model) {
 	//Number of Guests
 	this.numberOfGuests.html(model.getNumberOfGuests());
 
+	// View 3
+	//loadMainDishes();
 
-	// CONTROLER STUFF FORGETABOUTIT
-	/*
-	this.plusButton.click({nbGuests:this.numberOfGuests}, increaseGuests);
-	this.minusButton.click({nbGuests:this.numberOfGuests}, decreaseGuests);
+	// View 4
+	loadDish(100);
 
-	function increaseGuests(event){
-		model.setNumberOfGuests(model.getNumberOfGuests() + 1);
-		event.data.nbGuests.html(model.getNumberOfGuests());
-	}
+	// View 5
+	//loadFinalMenuList();
 
-	function decreaseGuests(event){
-		model.setNumberOfGuests(model.getNumberOfGuests() - 1);
-		event.data.nbGuests.html(model.getNumberOfGuests());
-	}*/
+	// View 6
+	//loadFinalMenuPrint();
 
 	function loadMainDishes(){
 		var mainDishes = model.getAllDishes("main dish");
@@ -34,17 +30,15 @@ var ExampleView = function (container, model) {
 
 		for (var i = 0; i <= mainDishes.length-1; i++) {
 			dish = mainDishes[i];
-			dishHtml = '<div class="dish col-xs-3" data-id="'+dish.id+'"><div class="dishImg">';
-			dishHtml += '<img class="" src="./images/'+dish.image+'" alt="'+dish.name+'">';
+			dishHtml = '<div class="dish col-xs-3"><div class="dishImg">';
+			dishHtml += '<img class="img-responsive center-block" src="./images/'+dish.image+'" alt="'+dish.name+'">';
 			dishHtml += '<p class="titleDishThumb">'+dish.name+'</p></div>';
 			dishHtml += '<div class="description"><p>'+dish.description+'</p></div></div>';
 			console.log(dishHtml);
 
-			$("#dishContainer").append(dishHtml);
+			$("#dishContainer .margtop").append(dishHtml);
 		}
 	}
-
-	//loadMainDishes();
 
 	function loadDish(id){
 		var dish = model.getDish(id);
@@ -97,8 +91,6 @@ var ExampleView = function (container, model) {
 		}				
 			
 	}
-
-	loadFinalMenuList();
 
 	function loadFinalMenuPrint(){
 		var fullMenu = model.getFullMenu();
