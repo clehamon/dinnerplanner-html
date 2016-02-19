@@ -9,7 +9,7 @@ body{
 	background-color:#eeeeee;
 }
 /*Added the styling for landing page*/
-h2 { 
+#landingPage h2 { 
 	color: white;
    position: absolute; 
    top: 200px; 
@@ -18,12 +18,13 @@ h2 {
    text-shadow: 4px 4px 8px #000000;
 }
 
-.button {
+#landingPage .button {
 position: absolute;
 text-shadow: 2px 2px 8px #000000;
+color: white;
 }
 
-.text-land{
+#landingPage .text-land{
 
 	font-size: 15px;
 	border: 2px;
@@ -126,6 +127,8 @@ text-shadow: 2px 2px 8px #000000;
 
 .dishImg img{
 	height: 140px;
+	width: 100%;
+
 }
 
 .dishPic{

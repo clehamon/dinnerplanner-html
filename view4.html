@@ -41,10 +41,27 @@
 			<div>
 				Number of guests : <span id="numberOfGuests"></span>
 			</div>
-			<div>
-          		<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+
+			<div class="input-group">
+			  <input type="text" class="form-control" aria-label="..." id="nbGuestInput">
+			  <div class="input-group-btn">
+			    <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
 				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+			  </div>
 			</div>
+
+			<table class="table" id="sidebarItems">
+				<tr>
+					<th class="sidebarName">Dish name</th>
+					<th class="sidebarCost">Cost</th>
+				</tr>
+			</table>
+
+
+			<div class=" printRecipe">
+				<button class="goBackButton">Confirm dinner</button>
+			</div>
+						
 		</div>
 
 		<div class="main col-xs-9">

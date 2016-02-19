@@ -11,23 +11,75 @@ var ExampleView = function (container, model) {
 	//Number of Guests
 	this.numberOfGuests.html(model.getNumberOfGuests());
 
-	// View 3
-	loadMainDishes();
-	loadSidebar();
+	load();
 
-	// View 4
-	//loadDish(100);
+	function load(){
+		$('#preparationDetails').hide();
+		$('#finalMenu').hide();
+		$('#finalMenuList').hide();
+		$('#finalMenuDishes').hide();
+		loadMainDishes();
+		loadFinalMenuList();
+		loadFinalMenuPrint();
+	}
 
-	// View 5
-	//loadFinalMenuList();
+	$(".dish").click(function(){
 
-	// View 6
-	//loadFinalMenuPrint();
+		$('#dishContainer').hide();
+		$('#preparationDetails').show();
+		loadDish($(this).data("id"));
+
+	})
+
+	$("#backToMain").click(function(){
+
+		$('#dishContainer').show();
+		$('#preparationDetails').hide();
+
+	})
+
+	$("#confirmDish").click(function(){
+
+		$('#dishContainer').show();
+		$('#preparationDetails').hide();
+		loadSidebar();
+
+	})
+
+	$("#confirmDinner").click(function(){
+
+		$('#dishContainer').hide();
+		$('#finalMenu').show();
+		$('#finalMenuList').show();
+
+	})
+
+	$("#backFromEnd").click(function(){
+
+		$('#finalMenu').hide();
+		$('#finalMenuDishes').hide();
+		$('#finalMenuList').hide();
+		$('#dishContainer').show();
+
+	})
+
+	
+
+	$("#goToPrint").click(function(){
+
+		$('#finalMevnu').show();
+		$('#finalMenuList').hide();
+		$('#finalMenuDishes').show();
+
+	})
+
+
 
 	function loadSidebar(){
 
 		var fullMenu = model.getFullMenu();
 		var nbGuests = model.getNumberOfGuests();
+		$("#sidebarItems").empty();
 
 		var dishHtml = "";
 		var dish = null;
@@ -51,14 +103,14 @@ var ExampleView = function (container, model) {
 		var mainDishes = model.getAllDishes("main dish");
 		var dishHtml = "";
 		var dish = null;
+		$("#dishContainer .margtop").empty();
 
 		for (var i = 0; i <= mainDishes.length-1; i++) {
 			dish = mainDishes[i];
-			dishHtml = '<div class="dish col-xs-3"><div class="dishImg">';
+			dishHtml = '<div class="dish col-xs-3" data-id='+dish.id+'><div class="dishImg">';
 			dishHtml += '<img class="img-responsive center-block" src="./images/'+dish.image+'" alt="'+dish.name+'">';
 			dishHtml += '<p class="titleDishThumb">'+dish.name+'</p></div>';
 			dishHtml += '<div class="description"><p>'+dish.description+'</p></div></div>';
-			console.log(dishHtml);
 
 			$("#dishContainer .margtop").append(dishHtml);
 		}
@@ -69,6 +121,8 @@ var ExampleView = function (container, model) {
 		var ingrHtml = "";
 		var ingredientsList = dish.ingredients;
 		var ingredient = null;
+
+		$("#ingredients-list").empty();
 
 		$("#preparationTitle").html(dish.name);
 		$("#preparationImg").attr("src", "./images/"+dish.image);
@@ -96,6 +150,7 @@ var ExampleView = function (container, model) {
 
 		var fullMenu = model.getFullMenu();
 		var nbGuests = model.getNumberOfGuests();
+		$("#finalMenuListDishes").empty();
 
 		var dishHtml = "";
 		var dish = null;
@@ -120,6 +175,7 @@ var ExampleView = function (container, model) {
 		var fullMenu = model.getFullMenu();
 		var dishHtml = "";
 		var dish = null;
+		$("#finalMenuDishes").empty();
 
 		$("#finalGuestNb").html(model.getNumberOfGuests());
 

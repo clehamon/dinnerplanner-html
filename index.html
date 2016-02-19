@@ -41,10 +41,27 @@
 			<div>
 				Number of guests : <span id="numberOfGuests"></span>
 			</div>
-			<div>
-          		<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+
+			<div class="input-group">
+			  <input type="text" class="form-control" aria-label="..." id="nbGuestInput">
+			  <div class="input-group-btn">
+			    <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
 				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
+			  </div>
 			</div>
+
+			<table class="table" id="sidebarItems">
+				<tr>
+					<th class="sidebarName">Dish name</th>
+					<th class="sidebarCost">Cost</th>
+				</tr>
+			</table>
+
+
+			<div class=" printRecipe">
+				<button class="goBackButton" id="confirmDinner">Confirm dinner</button>
+			</div>
+							
 		</div>
 
 		<div class="main col-xs-9">
@@ -55,7 +72,7 @@
 			</div> -->
 			<!-- View 3 :  Container for Dishes information -->
 
-			<!-- <div id="dishContainer">
+			<div id="dishContainer">
 				<div class="row menuHeader">
 					<div class="dinnerTitle col-xs-12">Select Dish : <span id="finalGuestNb"></span> peoples</div>
 					<div class="col-xs-12">
@@ -86,7 +103,7 @@
 					
 				</div>
 			</div>
- -->
+ 
 			<!-- View 4 -->
 			<div id="preparationDetails">
 				<div class="container-fluid">
@@ -97,7 +114,7 @@
 								<img id="preparationImg" src="" alt="" class="img-responsive center-block col-xs-12">
 								<p class="detailsText col-xs-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus sit voluptatibus tenetur eius quis repellat non facilis, magni enim assumenda esse odit ipsum atque maiores, accusantium, cumque eum quibusdam rem!</p>
 								<div class="col-xs-12">
-									<button class="goBackButton left">back to Select Dish</button>
+									<button class="goBackButton left" id="backToMain">back to Select Dish</button>
 								</div>
 								<h2 class=" col-xs-12">Preparation</h2>
 								<p class="detailsText col-xs-12" id="preparationText"></p>
@@ -112,7 +129,7 @@
 							</div>
 							<div class="row">
 								<div class="col-xs-8 col-xs-offset-1">
-									<button class="goBackButton left">Confirm dish</button>
+									<button class="goBackButton left" id="confirmDish">Confirm dish</button>
 								</div>
 								<div class="col-xs-3 ingredient-price" id="totalIngredientsPrice"><p>SEK 200</p></div>
 							</div>
@@ -124,16 +141,16 @@
 
 			<!-- View 5 & 6 -->
 			<div id="finalMenu">
-				<!-- <div class="row menuHeader">
+				<div class="row menuHeader" id="finalHeader">
 					<div class="dinnerTitle">My Dinner : <span id="finalGuestNb"></span> peoples</div>
-					<button class="goBackButton">Go back and edit dinner</button>
-				</div> -->
+					<button class="goBackButton" id="backFromEnd">Go back and edit dinner</button>
+				</div>
 
 				<div class="container-fluid">
 	
 					<!-- View 5 -->
 
-					<!-- <div class="margtop full-height" id="finalMenuList">
+					<div class="margtop full-height" id="finalMenuList">
 						<div class="row">
 							<div class="col-xs-6 col-xs-offset-3">
 								<div class="row" id="finalMenuListDishes">
@@ -148,15 +165,15 @@
 							</div>
 							<div class="row ">
 								<div class="col-xs-4 col-xs-offset-4 printRecipe">
-									<button class="goBackButton">Print Full Recipe</button>
+									<button class="goBackButton" id="goToPrint">Print Full Recipe</button>
 								</div>
 							</div>
 						</div>
-					</div> -->
+					</div>
 
 					<!-- View 6 -->
-					<!-- <div class="row" id="finalMenuDishes">
-					</div> -->
+					<div class="row" id="finalMenuDishes">
+					</div>
 				</div>
 			</div>
 		</div>

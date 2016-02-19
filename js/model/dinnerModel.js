@@ -4,11 +4,9 @@ var DinnerModel = function() {
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 
-	var nbGuest = 0;
-	var menu 	 = [1,100,201];
+	var nbGuest = 3;
+	var menu 	 = [101,102];
 
-	// ------- LAB 2 ----------- //
-	nbGuest = 2;
 
 	this.setNumberOfGuests = function(num) {
 		// If num is an integer
