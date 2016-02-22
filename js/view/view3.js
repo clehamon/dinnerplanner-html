@@ -4,6 +4,7 @@ var View3 = function (container, model) {
 
 	$("#confirmDinner").click(function(){
 
+		loadFinalMenuList();
 		$('#dishContainer').hide();
 		$('#finalMenu').show();
 		$('#finalMenuList').show();
@@ -53,7 +54,6 @@ var View3 = function (container, model) {
 
 		for (var i = 0; i <= ingredientsList.length-1; i++) {
 			ingredient = ingredientsList[i];
-			console.log(ingredient);
 
 			ingrHtml = '<div class="ingredient ">';
 			ingrHtml += '<div class="col-xs-3"><p>'+ingredient.quantity+" "+ingredient.unit+'</p></div>';
@@ -65,6 +65,31 @@ var View3 = function (container, model) {
 			$("#ingredients-list").append(ingrHtml);
 		}
 
+	}
+
+		function loadFinalMenuList(){
+
+		var fullMenu = model.getFullMenu();
+		var nbGuests = model.getNumberOfGuests();
+		$("#finalMenuListDishes").empty();
+
+		var dishHtml = "";
+		var dish = null;
+
+		$("#finalGuestNb").html(nbGuests);
+		$("#finalPrice").html(model.getTotalMenuPrice());
+
+		for (var i = 0; i <= fullMenu.length-1; i++) {
+			dish = fullMenu[i];
+
+			dishHtml = '<div class="dish col-xs-4">';
+			dishHtml += '<div class="dishImg"><img class="img-responsive" src="./images/'+dish.image+'" alt="'+dish.name+'">';
+			dishHtml += '<p class="titleDishThumb">'+dish.name+'</p></div>';
+			dishHtml += '<div class="price"><p>'+model.getDishPrice(dish.id)*nbGuests+' SEK</p></div></div>'
+
+			$("#finalMenuListDishes").append(dishHtml);
+		}				
+			
 	}
 }
  
