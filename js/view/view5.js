@@ -7,6 +7,16 @@ var View5 = function (container, model) {
 		$('#finalMenuDishes').hide();
 		$('#finalMenuList').hide();
 		$('#dishContainer').show();
+		$('#dishContainer').show();
+
+		// Change main container width
+
+		var main = $(".main");
+
+		main.removeClass('col-xs-12');
+		main.addClass('col-xs-9');
+
+		$('#sidebar').show();
 
 	})
 
