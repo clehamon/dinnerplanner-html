@@ -23,36 +23,36 @@ var ExampleView = function (container, model) {
 		loadFinalMenuPrint();
 	}
 
-	$(".dish").click(function(){
+	// $(".dish").click(function(){
 
-		$('#dishContainer').hide();
-		$('#preparationDetails').show();
-		loadDish($(this).data("id"));
+	// 	$('#dishContainer').hide();
+	// 	$('#preparationDetails').show();
+	// 	loadDish($(this).data("id"));
 
-	})
+	// })
 
-	$("#backToMain").click(function(){
+	// $("#backToMain").click(function(){
 
-		$('#dishContainer').show();
-		$('#preparationDetails').hide();
+	// 	$('#dishContainer').show();
+	// 	$('#preparationDetails').hide();
 
-	})
+	// })
 
-	$("#confirmDish").click(function(){
+	// $("#confirmDish").click(function(){
 
-		$('#dishContainer').show();
-		$('#preparationDetails').hide();
-		loadSidebar();
+	// 	$('#dishContainer').show();
+	// 	$('#preparationDetails').hide();
+	// 	loadSidebar();
 
-	})
+	// })
 
-	$("#confirmDinner").click(function(){
+	// $("#confirmDinner").click(function(){
 
-		$('#dishContainer').hide();
-		$('#finalMenu').show();
-		$('#finalMenuList').show();
+	// 	$('#dishContainer').hide();
+	// 	$('#finalMenu').show();
+	// 	$('#finalMenuList').show();
 
-	})
+	// })
 
 	$("#backFromEnd").click(function(){
 
@@ -75,29 +75,29 @@ var ExampleView = function (container, model) {
 
 
 
-	function loadSidebar(){
+	// function loadSidebar(){
 
-		var fullMenu = model.getFullMenu();
-		var nbGuests = model.getNumberOfGuests();
-		$("#sidebarItems").empty();
+	// 	var fullMenu = model.getFullMenu();
+	// 	var nbGuests = model.getNumberOfGuests();
+	// 	$("#sidebarItems").empty();
 
-		var dishHtml = "";
-		var dish = null;
+	// 	var dishHtml = "";
+	// 	var dish = null;
 
-		$("#nbGuestInput").attr("text", nbGuests);
+	// 	$("#nbGuestInput").attr("text", nbGuests);
 
-		for (var i = 0; i <= fullMenu.length-1; i++) {
-			dish = fullMenu[i];
+	// 	for (var i = 0; i <= fullMenu.length-1; i++) {
+	// 		dish = fullMenu[i];
 
-			dishHtml = '<tr><td>'+dish.name+'</td><td>'+model.getDishPrice(dish.id)*nbGuests+'</td></tr>';
+	// 		dishHtml = '<tr><td>'+dish.name+'</td><td>'+model.getDishPrice(dish.id)*nbGuests+'</td></tr>';
 
-			$("#sidebarItems").append(dishHtml);
-		}
+	// 		$("#sidebarItems").append(dishHtml);
+	// 	}
 
-		dishHtml = '<tr><td class="txt-right">SEK</td><td>'+model.getTotalMenuPrice()+'</td></tr>';
+	// 	dishHtml = '<tr><td class="txt-right">SEK</td><td>'+model.getTotalMenuPrice()+'</td></tr>';
 
-		$("#sidebarItems").append(dishHtml);
-	}
+	// 	$("#sidebarItems").append(dishHtml);
+	// }
 
 	function loadMainDishes(){
 		var mainDishes = model.getAllDishes("main dish");
@@ -116,35 +116,35 @@ var ExampleView = function (container, model) {
 		}
 	}
 
-	function loadDish(id){
-		var dish = model.getDish(id);
-		var ingrHtml = "";
-		var ingredientsList = dish.ingredients;
-		var ingredient = null;
+	// function loadDish(id){
+	// 	var dish = model.getDish(id);
+	// 	var ingrHtml = "";
+	// 	var ingredientsList = dish.ingredients;
+	// 	var ingredient = null;
 
-		$("#ingredients-list").empty();
+	// 	$("#ingredients-list").empty();
 
-		$("#preparationTitle").html(dish.name);
-		$("#preparationImg").attr("src", "./images/"+dish.image);
-		$("#preparationText").html(dish.description);
-		$("#nbGuests").html(model.getNumberOfGuests());
-		$("#totalIngredientsPrice p").html(model.getDishPrice(dish.id));
+	// 	$("#preparationTitle").html(dish.name);
+	// 	$("#preparationImg").attr("src", "./images/"+dish.image);
+	// 	$("#preparationText").html(dish.description);
+	// 	$("#nbGuests").html(model.getNumberOfGuests());
+	// 	$("#totalIngredientsPrice p").html(model.getDishPrice(dish.id));
 
-		for (var i = 0; i <= ingredientsList.length-1; i++) {
-			ingredient = ingredientsList[i];
-			console.log(ingredient);
+	// 	for (var i = 0; i <= ingredientsList.length-1; i++) {
+	// 		ingredient = ingredientsList[i];
+	// 		console.log(ingredient);
 
-			ingrHtml = '<div class="ingredient ">';
-			ingrHtml += '<div class="col-xs-3"><p>'+ingredient.quantity+" "+ingredient.unit+'</p></div>';
-			ingrHtml += '<div class="col-xs-6"><p>'+ingredient.name+'</p></div>';
-			ingrHtml += '<div class="col-xs-1"><p>SEK</p></div>';
-			ingrHtml += '<div class="col-xs-2 ingredient-price"><p>'+ingredient.quantity+'</p></div>';
-			ingrHtml += '</div>';
+	// 		ingrHtml = '<div class="ingredient ">';
+	// 		ingrHtml += '<div class="col-xs-3"><p>'+ingredient.quantity+" "+ingredient.unit+'</p></div>';
+	// 		ingrHtml += '<div class="col-xs-6"><p>'+ingredient.name+'</p></div>';
+	// 		ingrHtml += '<div class="col-xs-1"><p>SEK</p></div>';
+	// 		ingrHtml += '<div class="col-xs-2 ingredient-price"><p>'+ingredient.quantity+'</p></div>';
+	// 		ingrHtml += '</div>';
 
-			$("#ingredients-list").append(ingrHtml);
-		}
+	// 		$("#ingredients-list").append(ingrHtml);
+	// 	}
 
-	}
+	// }
 
 	function loadFinalMenuList(){
 
