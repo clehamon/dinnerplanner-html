@@ -6,6 +6,18 @@ var DinnerModel = function() {
 
 	var nbGuest = 3;
 	var menu 	 = [101,102];
+	var this.observers = [];
+
+	this.addObserver = function(observer){
+		this.observers.push(observer);
+	}
+
+
+	var notifyObservers = function(obj) {
+		for (var i = 0; i <=this.observers.length-1; i++) {
+			this.observers[i](this, obj);
+		}
+	}
 
 
 	this.setNumberOfGuests = function(num) {
