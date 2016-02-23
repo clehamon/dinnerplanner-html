@@ -1,6 +1,8 @@
 //View2 Object constructor
 var View2 = function (container, model) {
 
+	model.addObserver(this);
+
 
 	$("#confirmDinner").click(function(){
 
@@ -19,6 +21,10 @@ var View2 = function (container, model) {
 		$('#finalMenuList').show();
 
 	})
+
+		function update(obj){
+			
+		}
 
 		function loadFinalMenuList(){
 

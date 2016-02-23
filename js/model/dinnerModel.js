@@ -29,6 +29,8 @@ var DinnerModel = function() {
 				nbGuest = num;
 			}
 		};
+
+		notifyObservers();
 	}
 
 	// should return 
@@ -134,6 +136,8 @@ var DinnerModel = function() {
 			// We add the dish to the menu
 			menu.push(dish);
 		};
+
+		notifyObservers();
 	}
 
 	//Removes dish from menu
@@ -150,6 +154,8 @@ var DinnerModel = function() {
 
 			i--;
 		}
+
+		notifyObservers();
 
 		return foundDish;
 	}
