@@ -23,22 +23,30 @@ var View2 = function (container, model) {
 
 	})
 
-	function update(obj){
-		if (obj === "guests") {
 
+	function update(obj){
+
+		if (obj === "guests") {
+			loadNbGuests();
+
+		} else if (obj === "menu"){
+			loadMenuOverview(){
 		}
 	}
 
-	function loadSidebar(){
-
-		var fullMenu = model.getFullMenu();
+	function loadNbGuests(){
 		var nbGuests = model.getNumberOfGuests();
+		$("#nbGuestInput").val(nbGuests);
+		
+	}
+
+	function loadMenuOverview(){
+		var fullMenu = model.getFullMenu();
 		$("#sidebarItems").empty();
 
 		var dishHtml = "";
 		var dish = null;
 
-		$("#nbGuestInput").val(nbGuests);
 
 		for (var i = 0; i <= fullMenu.length-1; i++) {
 			dish = fullMenu[i];
@@ -51,6 +59,12 @@ var View2 = function (container, model) {
 		dishHtml = '<tr><td class="txt-right">SEK</td><td>'+model.getTotalMenuPrice()+'</td></tr>';
 
 		$("#sidebarItems").append(dishHtml);
+	}
+
+	function loadSidebar(){
+		loadNbGuests();
+		loadMenuOverview();
+		
 	}
 
 }
