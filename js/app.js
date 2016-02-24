@@ -10,3 +10,5 @@ $(function() {
 	var view5 = new View5($("#finalMenu"), model);
 
 });
+
+var ExampleViewController = new ExampleViewController(exampleView,model);

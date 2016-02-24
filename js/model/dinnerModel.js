@@ -8,6 +8,13 @@ var DinnerModel = function() {
 	var menu 	 = [101,102];
 	var observers = [];
 
+
+var plusButton = document.getElementById("plusGuest");
+var minusButton = document.getElementById("minusGuest");
+
+
+
+
 	this.addObserver = function(observer){
 		observers.push(observer);
 	}
@@ -190,6 +197,29 @@ var DinnerModel = function() {
 			}
 		}
 	}
+
+
+
+// DinnerController
+
+function ListController (DinnerModel, view ){
+this._model= DinnerModel;
+this._view= view;
+
+var _this
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 	// the dishes variable contains an array of all the 
