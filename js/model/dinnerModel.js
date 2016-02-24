@@ -7,12 +7,9 @@ var DinnerModel = function() {
 	var nbGuest = 3;
 	var menu 	 = [];
 	var observers = [];
-
-
-var plusButton = document.getElementById("plusGuest");
-var minusButton = document.getElementById("minusGuest");
-
-
+	
+	var plusButton = document.getElementById("plusGuest");
+	var minusButton = document.getElementById("minusGuest");
 
 
 	this.addObserver = function(observer){
