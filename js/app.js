@@ -9,6 +9,9 @@ $(function() {
 	var view4 = new View4($("#preparationDetails"), model);
 	var view5 = new View5($("#finalMenu"), model);
 
+	//Controllers
+	var addDishCtrl = new AddDishCtrl(view4, model);
+
 });
 
 var ExampleViewController = new ExampleViewController(exampleView,model);

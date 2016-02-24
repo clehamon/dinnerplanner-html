@@ -5,7 +5,7 @@ var DinnerModel = function() {
 	// and selected dinner options for dinner menu
 
 	var nbGuest = 3;
-	var menu 	 = [101,102];
+	var menu 	 = [];
 	var observers = [];
 
 
@@ -21,8 +21,9 @@ var minusButton = document.getElementById("minusGuest");
 
 
 	var notifyObservers = function(obj) {
-		for (var i = 0; i <=this.observers.length-1; i++) {
-			this.observers[i](this, obj);
+		for (var i = 0; i <= observers.length-1; i++) {
+			console.log(observers[i]);
+			observers[i](this, obj);
 		}
 	}
 
@@ -133,7 +134,7 @@ var minusButton = document.getElementById("minusGuest");
 		if (dish !== null) {
 
 			// Look if a dish of this type exist in the menu
-			var prevDish = getSelectedDish(dish.type);
+			var prevDish = this.getSelectedDish(dish.type);
 			
 			// if it does remove it
 			if ( prevDish !== null) {
@@ -141,8 +142,11 @@ var minusButton = document.getElementById("minusGuest");
 			};
 
 			// We add the dish to the menu
-			menu.push(dish);
+			menu.push(dish.id);
 		};
+
+		console.log("Add dish "+id);
+		console.log(menu);
 
 		notifyObservers("menu");
 	}

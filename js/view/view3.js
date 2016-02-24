@@ -51,6 +51,7 @@ var View3 = function (container, model) {
 		$("#preparationText").html(dish.description);
 		$("#nbGuests").html(model.getNumberOfGuests());
 		$("#totalIngredientsPrice p").html(model.getDishPrice(dish.id));
+		$("#confirmDish").attr("data-id",dish.id);
 
 		for (var i = 0; i <= ingredientsList.length-1; i++) {
 			ingredient = ingredientsList[i];

@@ -53,7 +53,7 @@ var View2 = function (container, model) {
 			dish = fullMenu[i];
 
 			dishHtml = '<tr><td>'+dish.name+'</td><td>'+model.getDishPrice(dish.id)*nbGuests+'</td>';
-			dishHtml += '<td><span class="glyphicon glyphicon-remove-circle remove-btn" aria-hidden="true"></span></td></tr>'
+			dishHtml += '<td><span class="glyphicon glyphicon-remove-circle remove-btn" aria-hidden="true" data-id="'+dish.id+'"></span></td></tr>'
 
 			$("#sidebarItems").append(dishHtml);
 		}
