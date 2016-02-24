@@ -30,7 +30,7 @@ var View2 = function (container, model) {
 			loadNbGuests();
 
 		} else if (obj === "menu"){
-			loadMenuOverview(){
+			loadMenuOverview()
 		}
 	}
 
@@ -41,6 +41,7 @@ var View2 = function (container, model) {
 	}
 
 	function loadMenuOverview(){
+		var nbGuests = model.getNumberOfGuests();
 		var fullMenu = model.getFullMenu();
 		$("#sidebarItems").empty();
 
@@ -51,7 +52,8 @@ var View2 = function (container, model) {
 		for (var i = 0; i <= fullMenu.length-1; i++) {
 			dish = fullMenu[i];
 
-			dishHtml = '<tr><td>'+dish.name+'</td><td>'+model.getDishPrice(dish.id)*nbGuests+'</td></tr>';
+			dishHtml = '<tr><td>'+dish.name+'</td><td>'+model.getDishPrice(dish.id)*nbGuests+'</td>';
+			dishHtml += '<td><span class="glyphicon glyphicon-remove-circle remove-btn" aria-hidden="true"></span></td></tr>'
 
 			$("#sidebarItems").append(dishHtml);
 		}
