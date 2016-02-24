@@ -6,10 +6,10 @@ var DinnerModel = function() {
 
 	var nbGuest = 3;
 	var menu 	 = [101,102];
-	var this.observers = [];
+	var observers = [];
 
 	this.addObserver = function(observer){
-		this.observers.push(observer);
+		observers.push(observer);
 	}
 
 
@@ -30,7 +30,7 @@ var DinnerModel = function() {
 			}
 		};
 
-		notifyObservers();
+		notifyObservers("guests");
 	}
 
 	// should return 
@@ -137,7 +137,7 @@ var DinnerModel = function() {
 			menu.push(dish);
 		};
 
-		notifyObservers();
+		notifyObservers("menu");
 	}
 
 	//Removes dish from menu
@@ -155,7 +155,7 @@ var DinnerModel = function() {
 			i--;
 		}
 
-		notifyObservers();
+		notifyObservers("menu");
 
 		return foundDish;
 	}
