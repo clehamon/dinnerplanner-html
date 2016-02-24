@@ -3,7 +3,9 @@ var AddDishCtrl = function(view, model ) {
  
 	view.confirmBtn.click( function(){
 
-		var dishId = $(this).data("id");
+		console.log(this);
+		console.log(view.confirmBtn);
+		var dishId = this.data("id");
 		console.log(dishId);
 		
 		model.addDishToMenu(dishId);
