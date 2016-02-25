@@ -4,6 +4,8 @@ var View2 = function (container, model) {
 	model.addObserver(update);
 	loadSidebar();
 
+	this.removeBtn = null;
+
 
 	$("#confirmDinner").click(function(){
 
@@ -50,6 +52,7 @@ var View2 = function (container, model) {
 
 
 		for (var i = 0; i <= fullMenu.length-1; i++) {
+
 			dish = fullMenu[i];
 
 			dishHtml = '<tr><td>'+dish.name+'</td><td>'+model.getDishPrice(dish.id)*nbGuests+'</td>';
@@ -61,6 +64,8 @@ var View2 = function (container, model) {
 		dishHtml = '<tr><td class="txt-right">SEK</td><td>'+model.getTotalMenuPrice()+'</td></tr>';
 
 		$("#sidebarItems").append(dishHtml);
+
+		this.removeBtn = container.find(".remove-btn");
 	}
 
 	function loadSidebar(){

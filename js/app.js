@@ -14,6 +14,7 @@ $(function() {
 
 	//Controllers
 	var addDishCtrl = new AddDishCtrl(view4, model);
+	var removeDishCtrl = new RemoveDishCtrl(view2, model);
 
 });
 

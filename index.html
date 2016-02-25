@@ -86,15 +86,12 @@
 						</div>
 						
 						<div class="col-xs-6">
-						    <div class="btn-group">
-							  <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							    Main Dish<span class="caret"></span>
-							  </button>
-							  <ul class="dropdown-menu">
-							    <li>Starter</li>
-							    <li>Dessert</li>
-							  </ul>
-							</div>
+						    <select class="selectpicker">
+							  <option value="main dish">Main dish</option>
+							  <option value="starter">Starter</option>
+							  <option value="dessert">Dessert</option>
+							</select>
+
 						</div>
 					</div>
 				</div>
@@ -194,5 +191,6 @@
 	<script src="js/view/view4.js"></script>
 	<script src="js/view/view5.js"></script>
 	<script src="js/controller/addDishCtrl.js"></script>
+	<script src="js/controller/removeDishCtrl.js"></script>
   </body>
 </html>
