@@ -19,7 +19,6 @@ var DinnerModel = function() {
 
 	var notifyObservers = function(obj) {
 		for (var i = 0; i <= observers.length-1; i++) {
-			console.log(observers);
 			observers[i](obj);
 		}
 	}
@@ -49,16 +48,13 @@ var DinnerModel = function() {
 		var i = menu.length-1;
 
 		// We iterate over the menu to find if a dish of the same type exist
-		while(i >= 0 && dish === null){
-
-			if (menu[i].type === type) {
-				dish = menu[i];
+		for (var i = menu.length - 1; i >= 0; i--) {
+			dish = this.getDish(menu[i]);
+			if (dish.type === type) {
+				return dish;
 			};
-
-			i--;
 		}
-
-		return dish;
+		return null;
 	}
 
 	//Returns all the dishes on the menu.
@@ -135,37 +131,33 @@ var DinnerModel = function() {
 			
 			// if it does remove it
 			if ( prevDish !== null) {
-				removeDishFromMenu(prevDish.id);
+				this.removeDishFromMenu(prevDish.id);
 			};
 
 			// We add the dish to the menu
 			menu.push(dish.id);
 		};
 
-		console.log("Add dish "+id);
-		console.log(menu);
-
 		notifyObservers("menu");
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		var foundDish = false;
-		var i = menu.length-1;
+		var dish = null;
 
-		while(i >= 0 && !foundDish){
+		// We iterate over the menu to find if a dish of the same type exist
+		for (var i = menu.length - 1; i >= 0; i--) {
 
-			if (menu[i].id === id) {
+			dish = this.getDish(menu[i]);
+			if (dish.id === id) {
 				menu.splice(i,1);
-				foundDish = true;
+				return true;
 			};
-
-			i--;
 		}
 
 		notifyObservers("menu");
 
-		return foundDish;
+		return false;
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")

@@ -26,9 +26,6 @@ var View2 = function (container, model) {
 
 	function update(obj){
 
-		console.log("wololo");
-		console.log("wololo");
-
 		if (obj === "guests") {
 			loadNbGuests();
 
