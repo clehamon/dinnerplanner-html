@@ -19,8 +19,8 @@ var DinnerModel = function() {
 
 	var notifyObservers = function(obj) {
 		for (var i = 0; i <= observers.length-1; i++) {
-			console.log(observers[i]);
-			observers[i](this, obj);
+			console.log(observers);
+			observers[i](obj);
 		}
 	}
 

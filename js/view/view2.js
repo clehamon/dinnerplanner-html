@@ -1,7 +1,7 @@
 //View2 Object constructor
 var View2 = function (container, model) {
 
-	model.addObserver(this);
+	model.addObserver(update);
 	loadSidebar();
 
 
@@ -25,6 +25,9 @@ var View2 = function (container, model) {
 
 
 	function update(obj){
+
+		console.log("wololo");
+		console.log("wololo");
 
 		if (obj === "guests") {
 			loadNbGuests();
