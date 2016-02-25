@@ -1,28 +1,12 @@
 //View3 Object constructor
 var View3 = function (container, model) {
 
+	this.selectorDish = container.find('#selectTypeDish'); 
 
-	$("#confirmDinner").click(function(){
+// FUNCTIONS
 
-		loadFinalMenuList();
-		$('#dishContainer').hide();
-		$('#finalMenu').show();
-		$('#finalMenuList').show();
-
-	})
-
-	$(".dish").click(function(){
-
-		$('#dishContainer').hide();
-		$('#preparationDetails').show();
-		loadDish($(this).data("id"));
-
-	})
-
-
-
-	function loadMainDishes(){
-		var mainDishes = model.getAllDishes("main dish");
+	this.loadMainDishes = function(type){
+		var mainDishes = model.getAllDishes(type);
 		var dishHtml = "";
 		var dish = null;
 		$("#dishContainer .margtop").empty();
@@ -37,6 +21,8 @@ var View3 = function (container, model) {
 			$("#dishContainer .margtop").append(dishHtml);
 		}
 	}
+
+	this.loadMainDishes("main dish");
 
 	function loadDish(id){
 		var dish = model.getDish(id);
@@ -89,8 +75,29 @@ var View3 = function (container, model) {
 			dishHtml += '<div class="price"><p>'+model.getDishPrice(dish.id)*nbGuests+' SEK</p></div></div>'
 
 			$("#finalMenuListDishes").append(dishHtml);
-		}				
+		}	
 			
 	}
+
+
+	//NAVIGATION
+
+
+	$("#confirmDinner").click(function(){
+
+		loadFinalMenuList();
+		$('#dishContainer').hide();
+		$('#finalMenu').show();
+		$('#finalMenuList').show();
+
+	})
+
+
+	container.on('click', '.dish', function() {
+		$('#dishContainer').hide();
+		$('#preparationDetails').show();
+		loadDish($(this).data("id"));
+
+	})
 }
  
