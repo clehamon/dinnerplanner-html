@@ -1,4 +1,4 @@
-var ExampleViewController = function (view, model){
+var SetGuestsController = function (view, model){
 
 	view.plusButton.click(function(){
 		model.setNumberOfGuests (model.getNumberOfGuests() + 1) ;
