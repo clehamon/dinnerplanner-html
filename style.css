@@ -130,6 +130,10 @@ color: white;
 	border: solid 2px black;
 }
 
+.dish{
+	cursor: pointer;
+}
+
 .dishCol{
 	padding: 30px 0px 30px 0px;
 	text-align: justify;
