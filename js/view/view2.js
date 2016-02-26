@@ -4,7 +4,7 @@ var View2 = function (container, model) {
 	model.addObserver(update);
 	loadSidebar();
 
-	this.removeBtn = null;
+	this.sidebarItems = $("#sidebarItems");
 
 
 	$("#confirmDinner").click(function(){
@@ -31,9 +31,9 @@ var View2 = function (container, model) {
 		if (obj === "guests") {
 			loadNbGuests();
 
-		} else if (obj === "menu"){
-			loadMenuOverview()
 		}
+
+		loadMenuOverview()
 	}
 
 	function loadNbGuests(){
@@ -46,6 +46,7 @@ var View2 = function (container, model) {
 		var nbGuests = model.getNumberOfGuests();
 		var fullMenu = model.getFullMenu();
 		$("#sidebarItems").empty();
+
 
 		var dishHtml = "";
 		var dish = null;

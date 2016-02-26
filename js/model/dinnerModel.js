@@ -147,15 +147,14 @@ var DinnerModel = function() {
 
 		// We iterate over the menu to find if a dish of the same type exist
 		for (var i = menu.length - 1; i >= 0; i--) {
-
 			dish = this.getDish(menu[i]);
-			if (dish.id === id) {
+			if (dish.id == id) {
 				menu.splice(i,1);
+				notifyObservers("menu");
 				return true;
+
 			};
 		}
-
-		notifyObservers("menu");
 
 		return false;
 	}
