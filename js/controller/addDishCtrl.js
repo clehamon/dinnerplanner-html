@@ -9,6 +9,21 @@ var AddDishCtrl = function(view, model ) {
 		model.addDishToMenu(dishId);
 
 	});
+
+
+	$("#backToMain").click(function(){
+
+		$('#dishContainer').show();
+		$('#preparationDetails').hide();
+
+	})
+
+	view.confirmBtn.click(function(){
+
+		$('#dishContainer').show();
+		$('#preparationDetails').hide();
+
+	})
  
 
 }

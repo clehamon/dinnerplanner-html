@@ -20,25 +20,6 @@ var View2 = function (container, model) {
 
 
 
-	$("#confirmDinner").click(function(){
-
-		// loadFinalMenuList();
-		$('#dishContainer').hide();
-		container.hide();
-
-		// Change main container width
-
-		var main = $(".main");
-
-		main.removeClass('col-xs-9');
-		main.addClass('col-xs-12');
-
-		$('#finalMenu').show();
-		$('#finalMenuList').show();
-
-	})
-
-
 	function update(obj){
 
 		if (obj === "guests") {

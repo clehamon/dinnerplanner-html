@@ -1,38 +1,33 @@
 //View5 Object constructor
 var View5 = function (container, model) {
 
-	$("#backFromEnd").click(function(){
+	this.loadFinalMenuList = function(){
 
-		$('#finalMenu').hide();
-		$('#finalMenuDishes').hide();
-		$('#finalMenuList').hide();
-		$('#dishContainer').show();
-		$('#dishContainer').show();
+		var fullMenu = model.getFullMenu();
+		var nbGuests = model.getNumberOfGuests();
+		$("#finalMenuListDishes").empty();
 
-		// Change main container width
+		var dishHtml = "";
+		var dish = null;
 
-		var main = $(".main");
+		$("#finalGuestNb").html(nbGuests);
+		$("#finalPrice").html(model.getTotalMenuPrice());
 
-		main.removeClass('col-xs-12');
-		main.addClass('col-xs-9');
+		for (var i = 0; i <= fullMenu.length-1; i++) {
+			dish = fullMenu[i];
 
-		$('#sidebar').show();
+			dishHtml = '<div class="dish col-xs-4">';
+			dishHtml += '<div class="dishImg"><img class="img-responsive" src="./images/'+dish.image+'" alt="'+dish.name+'">';
+			dishHtml += '<p class="titleDishThumb">'+dish.name+'</p></div>';
+			dishHtml += '<div class="price"><p>'+model.getDishPrice(dish.id)*nbGuests+' SEK</p></div></div>'
 
-	})
-
-	
-
-	$("#goToPrint").click(function(){
-
-		loadFinalMenuPrint();
-		$('#finalMenu').show();
-		$('#finalMenuList').hide();
-		$('#finalMenuDishes').show();
-
-	})
+			$("#finalMenuListDishes").append(dishHtml);
+		}	
+			
+	}
 
 
-	function loadFinalMenuPrint(){
+	this.loadFinalMenuPrint = function(){
 		var fullMenu = model.getFullMenu();
 		var dishHtml = "";
 		var dish = null;
