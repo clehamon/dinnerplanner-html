@@ -1,7 +1,7 @@
 var ExampleViewController = function (view, model){
 
 	view.plusButton.click(function(){
-		dinnerModel.setNumberOfGuests (model.getNumberOfGuests() + 1) ;
+		model.setNumberOfGuests (model.getNumberOfGuests() + 1) ;
 	});
 
 	view.minusButton.click(function(){

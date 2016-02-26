@@ -4,7 +4,7 @@ $(function() {
 	
 	//And create the needed controllers and views
 	var exampleView = new ExampleView($("#exampleView"), model);
-	var exampleViewController = new ExampleViewController(exampleView,model);
+	
 
 
 	var view2 = new View2($("#sidebar"), model);
@@ -16,6 +16,7 @@ $(function() {
 	var addDishCtrl = new AddDishCtrl(view4, model);
 	var filterDishCtrl = new FilterDishCtrl(view3, model);
 	var removeDishCtrl = new RemoveDishCtrl(view2, model);
+	var exampleViewController = new ExampleViewController(view2,model);
 
 });
 

@@ -8,8 +8,6 @@ var View2 = function (container, model) {
 
 
 
-
-
 	// Get all the relevant elements of the view (ones that show data
   	// and/or ones that responed to interaction)
 	this.numberOfGuests = container.find("#numberOfGuests");
@@ -18,7 +16,7 @@ var View2 = function (container, model) {
 	
 
 	//Number of Guests
-	this.numberOfGuests.html(model.getNumberOfGuests());
+	//this.numberOfGuests.html(model.getNumberOfGuests());
 
 
 
