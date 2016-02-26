@@ -66,10 +66,12 @@ color: white;
 	font-size: 1.5em;
 }
 
-
-
 .sidebarItemsFinal{
 	border-top: 1px solid black;
+}
+
+#plusGuest.btn,#minusGuest.btn{
+	padding: 6px;
 }
 
 #search-dish {
@@ -239,3 +241,12 @@ color: white;
 .right{
 	float: right;
 }
+
+@media (min-width: 768px) {
+
+	#plusGuest.btn,#minusGuest.btn{
+		padding: 6px 12px;
+	}
+
+}
+

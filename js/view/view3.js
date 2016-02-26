@@ -2,6 +2,8 @@
 var View3 = function (container, model) {
 
 	this.selectorDish = container.find('#selectTypeDish'); 
+	this.dishContainer = container.find('#dishContainer'); 
+	this.preparationDetails = container.find('#preparationDetails'); 
 
 // FUNCTIONS
 
@@ -23,36 +25,6 @@ var View3 = function (container, model) {
 	}
 
 	this.loadMainDishes("main dish");
-
-	function loadDish(id){
-		var dish = model.getDish(id);
-		var ingrHtml = "";
-		var ingredientsList = dish.ingredients;
-		var ingredient = null;
-
-		$("#ingredients-list").empty();
-
-		$("#preparationTitle").html(dish.name);
-		$("#preparationImg").attr("src", "./images/"+dish.image);
-		$("#preparationText").html(dish.description);
-		$("#nbGuests").html(model.getNumberOfGuests());
-		$("#totalIngredientsPrice p").html(model.getDishPrice(dish.id));
-		$("#confirmDish").attr("data-id",dish.id);
-
-		for (var i = 0; i <= ingredientsList.length-1; i++) {
-			ingredient = ingredientsList[i];
-
-			ingrHtml = '<div class="ingredient ">';
-			ingrHtml += '<div class="col-xs-3"><p>'+ingredient.quantity+" "+ingredient.unit+'</p></div>';
-			ingrHtml += '<div class="col-xs-6"><p>'+ingredient.name+'</p></div>';
-			ingrHtml += '<div class="col-xs-1"><p>SEK</p></div>';
-			ingrHtml += '<div class="col-xs-2 ingredient-price"><p>'+ingredient.quantity+'</p></div>';
-			ingrHtml += '</div>';
-
-			$("#ingredients-list").append(ingrHtml);
-		}
-
-	}
 
 		function loadFinalMenuList(){
 
@@ -93,11 +65,5 @@ var View3 = function (container, model) {
 	})
 
 
-	container.on('click', '.dish', function() {
-		$('#dishContainer').hide();
-		$('#preparationDetails').show();
-		loadDish($(this).data("id"));
-
-	})
 }
  
