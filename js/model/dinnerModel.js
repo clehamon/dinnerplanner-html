@@ -7,6 +7,8 @@ var DinnerModel = function() {
 	var nbGuest = 3;
 	var menu 	 = [];
 	var observers = [];
+
+	var bigOvenKey = 'H9n1zb6es492fj87OxDtZM9s5sb29rW3';
 	
 	var plusButton = document.getElementById("plusGuest");
 	var minusButton = document.getElementById("minusGuest");
@@ -180,6 +182,56 @@ var DinnerModel = function() {
 	  	return dish.type == type && found;
 	  });	
 	}
+
+
+	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
+	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
+	//if you don't pass any filter all the dishes will be returned
+	this.getAllDishesRest = function (type,filter) {
+
+		var recipeID = 196149;
+
+		$.ajax({
+			url: 'http://api.bigoven.com/recipes',
+			type: 'GET',
+			dataType: 'json',
+			data: {
+				api_key: bigOvenKey,
+			    title_kw: filter,
+			    photos: 1,
+		},
+		})
+		.done(function(data) {
+			console.log("success");
+			console.log(data);
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+
+
+	 //  return $(dishes).filter(function(index,dish) {
+		// var found = true;
+		// if(filter){
+		// 	found = false;
+		// 	$.each(dish.ingredients,function(index,ingredient) {
+		// 		if(ingredient.name.indexOf(filter)!=-1) {
+		// 			found = true;
+		// 		}
+		// 	});
+		// 	if(dish.name.indexOf(filter) != -1)
+		// 	{
+		// 		found = true;
+		// 	}
+		// }
+	 //  	return dish.type == type && found;
+	 //  });	
+	}
+
+	this.getAllDishesRest("","Cookies");
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
