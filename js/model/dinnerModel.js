@@ -202,8 +202,8 @@ var DinnerModel = function() {
 		})
 		.done(function(data) {
 			console.log("success");
-			notifyObservers("searchDone")
-			return data.Results;
+			console.log(data.Results);
+			notifyObservers(data.Results)
 		})
 		.fail(function() {
 			console.log("error");

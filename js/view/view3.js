@@ -16,7 +16,7 @@ var View3 = function (container, model) {
 	
 
 	loadMainDishes = function(type, filter){
-		mainDishes = model.getAllDishes(type, filter);
+		model.getAllDishes(type, filter);
 	}
 
 	drawMainDishes = function(){
@@ -29,7 +29,7 @@ var View3 = function (container, model) {
 		for (var i = 0; i <= mainDishes.length-1; i++) {
 			dish = mainDishes[i];
 			dishHtml = '<div class="dish col-xs-3" data-id='+dish.RecipeID+'><div class="dishImg">';
-			dishHtml += '<img class="img-responsive center-block" src="./images/'+dish.ImageURL120+'" alt="'+dish.Title+'">';
+			dishHtml += '<img class="img-responsive center-block" src="'+dish.ImageURL120+'" alt="'+dish.Title+'">';
 			dishHtml += '<p class="titleDishThumb">'+dish.Title+'</p></div>';
 			dishHtml += '<div class="description"><p>'+dish.Subcategory+'</p></div></div>';
 
@@ -47,7 +47,8 @@ var View3 = function (container, model) {
 			console.log(filter+"/"+type);
 			loadMainDishes(type, filter)
 
-		} else if(obj==="searchDone"){
+		} else{
+			mainDishes = obj;
 			drawMainDishes();
 		}
 	}
