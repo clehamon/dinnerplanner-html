@@ -47,8 +47,8 @@ var View3 = function (container, model) {
 			console.log(filter+"/"+type);
 			loadMainDishes(type, filter)
 
-		} else{
-			mainDishes = obj;
+		} else if(obj === "loadedDishes"){
+			mainDishes = model.getDishes();
 			drawMainDishes();
 		}
 	}

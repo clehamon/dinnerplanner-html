@@ -7,6 +7,7 @@ var DinnerModel = function() {
 	var nbGuest = 3;
 	var menu 	 = [];
 	var observers = [];
+	var dishesResults = [];
 
 	var bigOvenKey = 'XKEdN82lQn8x6Y5jm3K1ZX8L895WUoXN';
 	
@@ -203,7 +204,7 @@ var DinnerModel = function() {
 		.done(function(data) {
 			console.log("success");
 			console.log(data.Results);
-			notifyObservers(data.Results)
+			dishesLoaded(data.Results)
 		})
 		.fail(function() {
 			console.log("error");
@@ -213,6 +214,15 @@ var DinnerModel = function() {
 		});
 
 
+	}
+
+	function dishesLoaded(dishes){
+		dishesResults = dishes;
+		notifyObservers("loadedDishes");
+	}
+
+	this.getDishes = function(){
+		return dishesResults;
 	}
 
 	//function that returns a dish of specific ID
