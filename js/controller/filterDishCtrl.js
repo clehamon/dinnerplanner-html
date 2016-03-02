@@ -6,13 +6,17 @@ var FilterDishCtrl = function(view, model ) {
 
 	view.selectorDish.change( function(event){
 		type = this.value;
-		view.loadMainDishes(type, filter)
+		// view.loadMainDishes(type, filter)
+		// view.drawMainDishes(type, filter)
+		view.update("dishSearch");
 
 	});
 
 	view.searchBtn.click( function(event){
 		filter = view.searchBar.val();
-		view.loadMainDishes(type, filter)
+		// view.loadMainDishes(type, filter)
+		// view.drawMainDishes(type, filter)
+		view.update("dishSearch");
 
 	});
 

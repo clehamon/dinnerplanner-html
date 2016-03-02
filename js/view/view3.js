@@ -1,7 +1,6 @@
 //View3 Object constructor
 var View3 = function (container, model) {
 
-	model.addObserver(update);
 
 	this.selectorDish = container.find('#selectTypeDish'); 
 	this.searchBar = container.find('#searchBar'); 
@@ -9,33 +8,52 @@ var View3 = function (container, model) {
 	this.dishContainer = container.find('#dishContainer'); 
 	this.preparationDetails = container.find('#preparationDetails'); 
 	var dishId = 0;
+	var mainDishes = [];
+
 
 // FUNCTIONS
 
-	function update(obj){
-		if (obj === "guests") {
-			loadIngredients(model.getDish(dishId),model.getNumberOfGuests());
-		}
+	
+
+	loadMainDishes = function(type, filter){
+		mainDishes = model.getAllDishes(type, filter);
 	}
 
-	this.loadMainDishes = function(type, filter){
-		var mainDishes = model.getAllDishes(type, filter);
+	drawMainDishes = function(){
 		var dishHtml = "";
 		var dish = null;
 		$("#dishContainer .margtop").empty();
 
+		console.log(mainDishes);
+
 		for (var i = 0; i <= mainDishes.length-1; i++) {
 			dish = mainDishes[i];
-			dishHtml = '<div class="dish col-xs-3" data-id='+dish.id+'><div class="dishImg">';
-			dishHtml += '<img class="img-responsive center-block" src="./images/'+dish.image+'" alt="'+dish.name+'">';
-			dishHtml += '<p class="titleDishThumb">'+dish.name+'</p></div>';
-			dishHtml += '<div class="description"><p>'+dish.description+'</p></div></div>';
+			dishHtml = '<div class="dish col-xs-3" data-id='+dish.RecipeID+'><div class="dishImg">';
+			dishHtml += '<img class="img-responsive center-block" src="./images/'+dish.ImageURL120+'" alt="'+dish.Title+'">';
+			dishHtml += '<p class="titleDishThumb">'+dish.Title+'</p></div>';
+			dishHtml += '<div class="description"><p>'+dish.Subcategory+'</p></div></div>';
 
 			$("#dishContainer .margtop").append(dishHtml);
 		}
 	}
 
-	this.loadMainDishes("main dish");
+	this.update = function(obj){
+		if (obj === "guests") {
+			loadIngredients(model.getDish(dishId),model.getNumberOfGuests());
+
+		} else if (obj === "dishSearch"){
+			filter = $('#searchBar').val();
+			type = $('#selectTypeDish').val();
+			console.log(filter+"/"+type);
+			loadMainDishes(type, filter)
+
+		} else if(obj==="searchDone"){
+			drawMainDishes();
+		}
+	}
+
+	model.addObserver(this.update);
+
 
 	this.loadDish =function (id){
 		dishId = id;
