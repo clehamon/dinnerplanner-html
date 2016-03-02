@@ -8,8 +8,9 @@ var DinnerModel = function() {
 	var menu 	 = [];
 	var observers = [];
 	var dishesResults = [];
+	var currentDish = null;
 
-	var bigOvenKey = 'XKEdN82lQn8x6Y5jm3K1ZX8L895WUoXN';
+	var bigOvenKey = '3stL5NVP4s6ZkmK5gt4dci8a4zOQRpD4';
 	
 	var plusButton = document.getElementById("plusGuest");
 	var minusButton = document.getElementById("minusGuest");
@@ -162,27 +163,6 @@ var DinnerModel = function() {
 		return false;
 	}
 
-	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
-	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
-	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishesOld = function (type,filter) {
-	  return $(dishes).filter(function(index,dish) {
-		var found = true;
-		if(filter){
-			found = false;
-			$.each(dish.ingredients,function(index,ingredient) {
-				if(ingredient.name.indexOf(filter)!=-1) {
-					found = true;
-				}
-			});
-			if(dish.name.indexOf(filter) != -1)
-			{
-				found = true;
-			}
-		}
-	  	return dish.type == type && found;
-	  });	
-	}
 
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
@@ -202,8 +182,8 @@ var DinnerModel = function() {
 			},
 		})
 		.done(function(data) {
-			console.log("success");
-			console.log(data.Results);
+			console.log("success get all dishes");
+			console.log(data);
 			dishesLoaded(data.Results)
 		})
 		.fail(function() {
@@ -227,11 +207,34 @@ var DinnerModel = function() {
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
-	  for(key in dishes){
-			if(dishes[key].id == id) {
-				return dishes[key];
-			}
-		}
+	  $.ajax({
+			url: 'http://api.bigoven.com/recipe/'+id,
+			type: 'GET',
+			dataType: 'json',
+			data: {
+				api_key: bigOvenKey,
+			},
+		})
+		.done(function(data) {
+			console.log("success get dish");
+			console.log(data);
+			dishLoaded(data)
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+	}
+
+	function dishLoaded(dish){
+		currentDish = dish;
+		notifyObservers("loadedDish");
+	}
+
+	this.getCurrentDish = function(){
+		return currentDish;
 	}
 
 

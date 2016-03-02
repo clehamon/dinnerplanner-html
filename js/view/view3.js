@@ -9,6 +9,7 @@ var View3 = function (container, model) {
 	this.preparationDetails = container.find('#preparationDetails'); 
 	var dishId = 0;
 	var mainDishes = [];
+	var currentDish = null;
 
 
 // FUNCTIONS
@@ -50,6 +51,9 @@ var View3 = function (container, model) {
 		} else if(obj === "loadedDishes"){
 			mainDishes = model.getDishes();
 			drawMainDishes();
+		} else if (obj === "loadedDish"){
+			currentDish = model.getCurrentDish();
+			drawDish(currentDish);
 		}
 	}
 
@@ -59,16 +63,19 @@ var View3 = function (container, model) {
 	this.loadDish =function (id){
 		dishId = id;
 		var dish = model.getDish(id);
+
+	}
+
+	drawDish = function(dish){
 		var nbGuests = model.getNumberOfGuests();
+		console.log("drawdish");
 
-		$("#preparationTitle").html(dish.name);
-		$("#preparationImg").attr("src", "./images/"+dish.image);
-		$("#preparationText").html(dish.description);
-		$("#confirmDish").attr("data-id",dish.id);
+		$("#preparationTitle").html(dish.Title);
+		$("#preparationImg").attr("src", dish.ImageURL);
+		$("#preparationText").html(dish.Description);
+		$("#confirmDish").attr("data-id",dish.RecipeID);
 
-		loadIngredients(dish, nbGuests);
-		
-
+		//loadIngredients(dish, nbGuests);
 	}
 
 	function loadIngredients(dish, guests){
