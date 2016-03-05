@@ -208,6 +208,7 @@ var DinnerModel = function() {
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
+		console.log("dish id :"+id)
 	  $.ajax({
 			url: 'http://api.bigoven.com/recipe/'+id,
 			type: 'GET',

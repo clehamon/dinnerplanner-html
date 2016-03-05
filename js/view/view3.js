@@ -40,7 +40,7 @@ var View3 = function (container, model) {
 
 	this.update = function(obj){
 		if (obj === "guests") {
-			loadIngredients(model.getDish(dishId),model.getNumberOfGuests());
+			//loadIngredients(model.getDish(dishId),model.getNumberOfGuests());
 
 		} else if (obj === "dishSearch"){
 			filter = $('#searchBar').val();
@@ -62,7 +62,7 @@ var View3 = function (container, model) {
 
 	this.loadDish =function (id){
 		dishId = id;
-		var dish = model.getDish(id);
+		model.getDish(id);
 
 	}
 
@@ -75,13 +75,14 @@ var View3 = function (container, model) {
 		$("#preparationText").html(dish.Description);
 		$("#confirmDish").attr("data-id",dish.RecipeID);
 
-		//loadIngredients(dish, nbGuests);
+		loadIngredients(dish, nbGuests);
 	}
 
 	function loadIngredients(dish, guests){
 		var ingrHtml = "";
-		var ingredientsList = dish.ingredients;
+		var ingredientsList = dish.Ingredients;
 		var ingredient = null;
+		var totalPrice = 0;
 
 		$("#ingredients-list").empty();
 
@@ -89,16 +90,18 @@ var View3 = function (container, model) {
 			ingredient = ingredientsList[i];
 
 			ingrHtml = '<div class="ingredient ">';
-			ingrHtml += '<div class="col-xs-3"><p>'+Math.ceil(ingredient.quantity*guests)+" "+ingredient.unit+'</p></div>';
-			ingrHtml += '<div class="col-xs-6"><p>'+ingredient.name+'</p></div>';
+			ingrHtml += '<div class="col-xs-3"><p>'+Math.ceil(ingredient.MetricQuantity*guests)+" "+ingredient.MetricUnit+'</p></div>';
+			ingrHtml += '<div class="col-xs-6"><p>'+ingredient.Name+'</p></div>';
 			ingrHtml += '<div class="col-xs-1"><p>SEK</p></div>';
-			ingrHtml += '<div class="col-xs-2 ingredient-price"><p>'+ingredient.price*guests+'</p></div>';
+			ingrHtml += '<div class="col-xs-2 ingredient-price"><p>'+Math.ceil(ingredient.MetricQuantity*guests)+'</p></div>';
 			ingrHtml += '</div>';
+
+			totalPrice += ingredient.MetricQuantity*guests;
 
 			$("#ingredients-list").append(ingrHtml);
 		}
 
-		$("#totalIngredientsPrice p").html(model.getDishPrice(dish.id)*guests);
+		$("#totalIngredientsPrice p").html(Math.ceil(totalPrice));
 
 	}
 
