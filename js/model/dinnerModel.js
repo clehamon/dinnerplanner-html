@@ -10,7 +10,7 @@ var DinnerModel = function() {
 	var dishesResults = [];
 	var currentDish = null;
 
-	var bigOvenKey = '3stL5NVP4s6ZkmK5gt4dci8a4zOQRpD4';
+	var bigOvenKey = 'XKEdN82lQn8x6Y5jm3K1ZX8L895WUoXN';
 	
 	var plusButton = document.getElementById("plusGuest");
 	var minusButton = document.getElementById("minusGuest");
@@ -177,6 +177,7 @@ var DinnerModel = function() {
 			data: {
 				api_key: bigOvenKey,
 			    title_kw: filter,
+			    any_kw: type,
 			    pg: 1,
 			    rpp: 20,
 			},
