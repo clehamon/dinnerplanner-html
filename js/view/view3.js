@@ -20,6 +20,8 @@ var View3 = function (container, model) {
 		model.getAllDishes(type, filter);
 	}
 
+	loadMainDishes("main dish",'');
+
 	drawMainDishes = function(){
 		var dishHtml = "";
 		var dish = null;
